@@ -4,27 +4,27 @@ include_controls "microsoft-windows-server-2019-stig-baseline" do
 
   control "V-93019" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
   end
 
   control "V-93021" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
   end
 
   control "V-93023" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
   end
 
   control "V-93183" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
   end
 
   control "V-93185" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
   end
 
   control "V-93187" do
@@ -60,17 +60,17 @@ include_controls "microsoft-windows-server-2019-stig-baseline" do
 
   control "V-93199" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
   end
 
   control "V-93201" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
   end
 
   control "V-93203" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
   end
 
   control "V-93313" do
@@ -522,42 +522,42 @@ include_controls "microsoft-windows-server-2019-stig-baseline" do
 
   control "V-93425" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
   end
 
   control "V-93427" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
   end
 
   control "V-93429" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
   end
 
   control "V-93431" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
   end
 
   control "V-93433" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
   end
 
   control "V-93435" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
   end
 
   control "V-93453" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
   end
 
   control "V-93455" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
   end
 
   control "V-93483" do
@@ -614,22 +614,31 @@ include_controls "microsoft-windows-server-2019-stig-baseline" do
 
   control "V-93491" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the CCEB is not applicable to CMS"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the CCEB is not applicable to CMS"
   end
 
   control "V-93499" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not mandatory in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not mandatory in CMS ARS 3.1"
   end
 
   control "V-93501" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not mandatory in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not mandatory in CMS ARS 3.1"
   end
 
   control "V-93543" do
     impact 0.0
-    desc, "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
+    desc "caveat", "Not applicable for this CMS ARS 3.1 overlay, since the related security control is not included in CMS ARS 3.1"
+  end
+
+  control "V-93565" do
+    desc  "fix", "Ensure Exploit Protection system-level mitigation, \"Randomize memory allocations (Bottom-Up ASLR)\" is turned on. The default configuration in Exploit Protection is \"On by default\" which meets this requirement.
+      Open \"Windows Defender Security Center\".
+      Select \"App & browser control\".
+      Select \"Exploit protection settings\".
+      Under \"System settings\", configure \"Randomize memory allocations
+      (Bottom-Up ASLR)\" to \"On by default\" or \"Use default (<On>)\"."
   end
 
 end
