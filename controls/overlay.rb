@@ -17,6 +17,24 @@ include_controls "microsoft-windows-server-2019-stig-baseline" do
     desc "caveat", "This is Not Applicable since the related security control is not included in CMS ARS 3.1"
   end
 
+  control "V-93149" do
+    desc  'check', "If the following registry value does not exist or is not configured as specified, this is a finding:
+
+      Registry Hive: HKEY_LOCAL_MACHINE
+      Registry Path: \\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\
+
+      Value Name: LegalNoticeCaption
+
+      Value Type: REG_SZ
+      Value: See message title options below
+
+      \"CMS Notice and Consent Banner\", \"US Department of Health and Human Services Warning Statement\", or an organization-defined equivalent.
+      If an organization-defined title is used, it can in no case contravene or modify the language of the banner text required in WN19-SO-000150.
+      Automated tools may only search for the titles defined above. If an organization-defined title is used, a manual review will be required."
+    desc  'fix', "Configure the policy value for Computer Configuration >> Windows Settings >> Security Settings >> Local Policies >> Security Options >> \"Interactive Logon: Message title for users attempting to log on\" to \"CMS Notice and Consent Banner\", \"US Department of Health and Human Services Warning Statement\", or an organization-defined equivalent.
+    If an organization-defined title is used, it can in no case contravene or modify the language of the message text required in WN19-SO-000150."
+  end
+
   control "V-93183" do
     impact 0.0
     desc "caveat", "This is Not Applicable since the related security control is not included in CMS ARS 3.1"
@@ -560,6 +578,33 @@ include_controls "microsoft-windows-server-2019-stig-baseline" do
     desc "caveat", "This is Not Applicable since the related security control is not included in CMS ARS 3.1"
   end
 
+  control "V-93463" do
+    title "Windows Server 2019 minimum password length must be configured to 15 characters."
+    desc  "check", "Verify the effective setting in Local Group Policy Editor.
+      Run \"gpedit.msc\".
+      Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings >> Security Settings >> Account Policies >> Password Policy.
+      If the value for the \"Minimum password length,\" is less than \"15\" characters, this is a finding.
+
+      For server core installations, run the following command:
+      Secedit /Export /Areas SecurityPolicy /CFG C:\\Path\\FileName.Txt
+      If \"MinimumPasswordLength\" is less than \"15\" in the file, this is a finding."
+    desc  "fix", "Configure the policy value for Computer Configuration >> Windows Settings >> Security Settings >> Account Policies >> Password Policy >> \"Minimum password length\" to \"15\" characters."
+  end
+
+  control "V-93479" do
+    title "Windows Server 2019 password history must be configured to 12 passwords remembered."
+    desc  "A system is more vulnerable to unauthorized access when system users recycle the same password several times without being required to change to a unique password on a regularly scheduled basis. This enables users to effectively negate the purpose of mandating periodic password changes. The default value is \"12\" for Windows domain systems. CMS has decided this is the appropriate value for all Windows systems."
+    desc  "check", "Verify the effective setting in Local Group Policy Editor.
+      Run \"gpedit.msc\".
+      Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings >> Security Settings >> Account Policies >> Password Policy.
+      If the value for \"Enforce password history\" is less than \"12\" passwords remembered, this is a finding.
+
+      For server core installations, run the following command:
+      Secedit /Export /Areas SecurityPolicy /CFG C:\\Path\\FileName.Txt
+      If \"PasswordHistorySize\" is less than \"12\" in the file, this is a finding."
+    desc  "fix", "Configure the policy value for Computer Configuration >> Windows Settings >> Security Settings >> Account Policies >> Password Policy >> \"Enforce password history\" to \"12\" passwords remembered."
+  end
+
   control "V-93483" do
     title "Windows Server 2019 domain Controller PKI certificates must be issued by the CMS PKI or an approved External Certificate Authority (ECA)."
     desc  "check", "This applies to domain controllers. It is NA for other systems.
@@ -627,6 +672,40 @@ include_controls "microsoft-windows-server-2019-stig-baseline" do
     desc "caveat", "This is Not Applicable since the related security control is not mandatory in CMS ARS 3.1"
   end
 
+  control 'V-93509' do
+    title 'Windows Server 2019 directory service must be configured to terminate LDAP-based network connections to the directory server after thirty minutes of inactivity.'
+    desc  'check', 'This applies to domain controllers. It is NA for other systems.
+    Open an elevated \"Command Prompt\" (run as administrator).
+    Enter \"ntdsutil\".
+    At the \"ntdsutil:\" prompt, enter \"LDAP policies\".
+    At the \"ldap policy:\" prompt, enter \"connections\".
+    At the \"server connections:\" prompt, enter \"connect to server [host-name]\"
+    (where [host-name] is the computer name of the domain controller).
+    At the \"server connections:\" prompt, enter \"q\".
+    At the \"ldap policy:\" prompt, enter \"show values\".
+    If the value for MaxConnIdleTime is greater than \"1800\" (30 minutes) or is not specified, this is a finding.
+    Enter \"q\" at the \"ldap policy:\" and \"ntdsutil:\" prompts to exit.
+
+    Alternately, Dsquery can be used to display MaxConnIdleTime:
+    Open \"Command Prompt (Admin)\".
+    Enter the following command (on a single line).
+    dsquery * \"cn=Default Query Policy,cn=Query-Policies,cn=Directory Service, cn=Windows NT,cn=Services,cn=Configuration,dc=[forest-name]\" -attr LDAPAdminLimits
+
+    The quotes are required and dc=[forest-name] is the fully qualified LDAP name of the domain being reviewed (e.g., dc=disaost,dc=mil).
+    If the results do not specify a \"MaxConnIdleTime\" or it has a value greater than \"1800\" (30 minutes), this is a finding.'
+    desc  'fix', 'Configure the directory service to terminate LDAP-based network connections to the directory server after 30 minutes of inactivity.
+    Open an elevated \"Command prompt\" (run as administrator).
+    Enter \"ntdsutil\".
+    At the \"ntdsutil:\" prompt, enter \"LDAP policies\".
+    At the \"ldap policy:\" prompt, enter \"connections\".
+    At the \"server connections:\" prompt, enter \"connect to server [host-name]\" (where [host-name] is the computer name of the domain controller).
+    At the \"server connections:\" prompt, enter \"q\".
+    At the \"ldap policy:\" prompt, enter \"Set MaxConnIdleTime to 1800\".
+    Enter \"Commit Changes\" to save.
+    Enter \"Show values\" to verify changes.
+    Enter \"q\" at the \"ldap policy:\" and \"ntdsutil:\" prompts to exit.'
+  end
+
   control "V-93543" do
     impact 0.0
     desc "caveat", "This is Not Applicable since the related security control is not included in CMS ARS 3.1"
@@ -639,6 +718,17 @@ include_controls "microsoft-windows-server-2019-stig-baseline" do
       Select \"Exploit protection settings\".
       Under \"System settings\", configure \"Randomize memory allocations
       (Bottom-Up ASLR)\" to \"On by default\" or \"Use default (<On>)\"."
+  end
+
+  control "V-93567" do
+    title "Windows Server 2019 must employ automated mechanisms to determine the state of system components with regard to flaw remediation every 72 hours."
+    desc  "Without the use of automated mechanisms to scan for security flaws on a continuous and/or periodic basis, the operating system or other system components may remain vulnerable to the exploits presented by undetected software flaws."
+    desc  "check", "Verify the operating system employs automated mechanisms to determine the state of system components with regard to flaw remediation no less often than once every seventy-two (72) hours. If it does not, this is a finding."
+    desc  "fix", "Configure the operating system to employ automated mechanisms to determine the state of system components with regard to flaw remediation no less often than once every seventy-two (72) hours."
+
+    describe "A manual review is required to verify the operating system employs automated mechanisms to determine the state of system components with regard to flaw remediation no less often than once every seventy-two (72) hours. If it does not, this is a finding." do	
+      skip "A manual review is required to verify the operating system employs automated mechanisms to determine the state of system components with regard to flaw remediation no less often than once every seventy-two (72) hours. If it does not, this is a finding."	
+    end
   end
 
 end
