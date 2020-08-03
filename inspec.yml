@@ -10,3 +10,10 @@ version: 1.3.0
 depends:
 - name: microsoft-windows-server-2019-stig-baseline
   path: ../microsoft-windows-server-2019-stig-baseline
+
+inputs:
+  - name: pass_lock_time
+    desc: "Sets the number of min before a session is locked out [15]"
+    type: Numeric
+    value: 120
+    profile: microsoft-windows-server-2019-stig-baseline

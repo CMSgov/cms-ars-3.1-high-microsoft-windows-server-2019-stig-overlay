@@ -1,6 +1,6 @@
 # encoding: UTF-8
 
-include_controls 'microsoft-windows-server-2019-stig-baseline' do
+#include_controls 'microsoft-windows-server-2019-stig-baseline' do
   control "V-92975" do
     title "Windows Server 2019 must automatically remove or disable temporary user accounts after 72 hours."
     desc  "If temporary user accounts remain active when no longer needed or for an excessive period, these accounts may be used to gain unauthorized access. To mitigate this risk, automated termination of all temporary accounts must be set upon account creation.
@@ -220,4 +220,4 @@ include_controls 'microsoft-windows-server-2019-stig-baseline' do
       end
     end
   end
-end
+#end

@@ -1,6 +1,6 @@
 # encoding: UTF-8
 
-include_controls 'microsoft-windows-server-2019-stig-baseline' do
+#include_controls 'microsoft-windows-server-2019-stig-baseline' do
   control "V-92977" do
     title "Windows Server 2019 must automatically remove or disable emergency accounts after the crisis is resolved or within 72 hours."
     desc  "Emergency administrator accounts are privileged accounts established in response to crisis situations where the need for rapid account activation is required. Therefore, emergency account activation may bypass normal account authorization processes. If these accounts are automatically disabled, system maintenance during emergencies may not be possible, thus adversely affecting system availability.
@@ -215,4 +215,4 @@ include_controls 'microsoft-windows-server-2019-stig-baseline' do
     end
   end
   end
-end
+#end
