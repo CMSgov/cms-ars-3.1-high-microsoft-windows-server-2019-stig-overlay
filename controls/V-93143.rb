@@ -1,6 +1,6 @@
 # encoding: UTF-8
 
-#include_controls 'microsoft-windows-server-2019-stig-baseline' do
+include_controls 'microsoft-windows-server-2019-stig-baseline' do
   control "V-93143" do
     title "Windows Server 2019 must have the period of time before the bad logon counter is reset configured to 15 minutes or greater."
     desc  "The account lockout feature, when enabled, prevents brute-force password attacks on the system. This parameter specifies the period of time that must pass after failed logon attempts before the counter is reset to \"0\". The smaller this value is, the less effective the account lockout feature will be in protecting the local system."
@@ -25,7 +25,7 @@
     tag 'nist': ["AC-7 a", "AC-7 b", "Rev_4"]
 
     os_type = command('Test-Path "$env:windir\explorer.exe"').stdout.strip
-    password_lock = input('pass_lock_time')
+    #password_lock = input('pass_lock_time')
 
     if os_type == 'false'
       describe 'This system is a Server Core Installation, and a manual check will need to be performed with command Secedit /Export /Areas User_Rights /cfg c:\\path\\filename.txt' do
@@ -33,9 +33,9 @@
       end
     else
       describe security_policy do
-        its('ResetLockoutCount') { should be >= password_lock }
-        #its('ResetLockoutCount') { should be >= input('pass_lock_time') }
+        #its('ResetLockoutCount') { should be >= password_lock }
+        its('ResetLockoutCount') { should be >= input('pass_lock_time') }
       end
     end
   end
-#end
+end
