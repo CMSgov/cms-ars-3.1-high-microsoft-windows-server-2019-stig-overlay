@@ -25,7 +25,7 @@
     tag 'nist': ["AC-7 a", "AC-7 b", "Rev_4"]
 
     os_type = command('Test-Path "$env:windir\explorer.exe"').stdout.strip
-    #password_lock = input('pass_lock_time')
+    password_lock = input('pass_lock_time')
 
     if os_type == 'false'
       describe 'This system is a Server Core Installation, and a manual check will need to be performed with command Secedit /Export /Areas User_Rights /cfg c:\\path\\filename.txt' do
@@ -33,8 +33,8 @@
       end
     else
       describe security_policy do
-        #its('ResetLockoutCount') { should be >= password_lock }
-        its('ResetLockoutCount') { should be >= input('pass_lock_time') }
+        its('ResetLockoutCount') { should be >= password_lock }
+        #its('ResetLockoutCount') { should be >= input('pass_lock_time') }
       end
     end
   end
