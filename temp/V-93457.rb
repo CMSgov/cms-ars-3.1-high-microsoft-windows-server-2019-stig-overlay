@@ -1,5 +1,5 @@
 # encoding: UTF-8
-
+#
 include_controls 'microsoft-windows-server-2019-stig-baseline' do
   control "V-93457" do
     desc  "check", "Open \"Windows PowerShell\".
