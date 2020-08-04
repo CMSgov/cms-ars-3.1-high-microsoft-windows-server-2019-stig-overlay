@@ -36,6 +36,12 @@ inputs:
     value: 15
     profile: microsoft-windows-server-2019-stig-baseline
 
+  - name: unused_account_age
+    desc: "Set the maximum age in days for unused accounts stated by your organization"
+    type: Numeric
+    value: 30
+    profile: microsoft-windows-server-2019-stig-baseline
+
   - name: LegalNoticeCaption
     desc: "Use the default values or add an organization-defined legal notice caption"
     type: Array
