@@ -24,6 +24,12 @@ inputs:
     value: 1800
     profile: microsoft-windows-server-2019-stig-baseline
 
+  - name: maximum_password_age_machine
+    desc: "Set the machine account maximum password age stated by your organiztion"
+    type: Numeric
+    value: 60
+    profile: microsoft-windows-server-2019-stig-baseline
+
   - name: password_history_size
     desc: "Set the password history size stated by your organization"
     type: Numeric
