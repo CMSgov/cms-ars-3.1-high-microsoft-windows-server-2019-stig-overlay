@@ -578,6 +578,11 @@ include_controls "microsoft-windows-server-2019-stig-baseline" do
     EnableRopSimExec: ON"
   end
 
+  control "V-93379" do
+    impact 0.0
+    desc "caveat", "This is Not Applicable since the related security control is not mandatory in CMS ARS 3.1"
+  end
+
   control "V-93425" do
     impact 0.0
     desc "caveat", "This is Not Applicable since the related security control is not included in CMS ARS 3.1"
