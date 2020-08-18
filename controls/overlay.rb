@@ -30,7 +30,7 @@ include_controls "microsoft-windows-server-2019-stig-baseline" do
   end
 
   control "V-93145" do
-    title "Windows Server 2019 account lockout duration must be configured to 0."
+    title "Windows Server 2019 account lockout duration must be configured to persist until released by an administrator."
     desc  'check', "Verify the effective setting in Local Group Policy Editor.
       Run \"gpedit.msc\".
       Navigate to Local Computer Policy >> Computer Configuration >> Windows Settings >> Security Settings >> Account Policies >> Account Lockout Policy.
