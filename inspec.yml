@@ -12,37 +12,88 @@ depends:
   path: ../microsoft-windows-server-2019-stig-baseline
 
 inputs:
-  - name: pass_lock_time
+  - name: temp_accounts_domain #V-92975
+    desc: "List of temporary accounts on the domain"
+    type: Array
+    value: 
+      -
+
+  - name: temp_accounts_local #V-92975
+    desc: "List of temporary accounts on local system"
+    type: Array
+    value: 
+      -
+
+  - name: temporary_account_period #V-92975
+    desc: "List the number of days that temporary accounts remain active for"
+    type: Numeric
+    value: 30
+
+  - name: emergency_accounts_domain #V-92977
+    desc: "List of emergency accounts on the domain"
+    type: Array
+    value: 
+      - 
+
+  - name: emergency_accounts_local #V-92977
+    desc: "List of emergency accounts on the system"
+    type: Array
+    value: 
+      - 
+
+  - name: emergency_account_period #V-92977
+    desc: "List the number of days that temporary accounts remain active for"
+    type: Numeric
+    value: 1
+
+  - name: application_accounts_domain #V-93209
+    desc: "List Application or Service Accounts domain"
+    type: Array
+    value: 
+      - 
+
+  - name: application_accounts_local #V-93209
+    desc: "List Application Local Accounts"
+    type: Array
+    value: 
+      - 
+
+  - name: app_password_age #V-93209
+    desc: "Set the number of days that manually managed application account passwords must be changed"
+    type: Number
+    value: 60
+
+  - name: pass_lock_time #V-93143
     desc: "Sets the number of min before a session is locked out [15]"
     type: Numeric
     value: 120
     profile: microsoft-windows-server-2019-stig-baseline
 
-  - name: maximum_idle_time
+  - name: maximum_idle_time #V-93509
     desc: "Set the maximum connection idle time stated by your organiztion"
     type: Numeric
     value: 1800
     profile: microsoft-windows-server-2019-stig-baseline
 
-  - name: maximum_password_age_machine
+  - name: maximum_password_age_machine #V-93285
     desc: "Set the machine account maximum password age stated by your organiztion"
     type: Numeric
     value: 60
     profile: microsoft-windows-server-2019-stig-baseline
 
-  - name: password_history_size
+  - name: password_history_size #V-93479
     desc: "Set the password history size stated by your organization"
     type: Numeric
     value: 12
     profile: microsoft-windows-server-2019-stig-baseline
 
-  - name: minimum_password_length
+  - name: minimum_password_length #V-93463
     desc: "Set the minimum password length stated by your organization"
     type: Numeric
     value: 15
     profile: microsoft-windows-server-2019-stig-baseline
 
-  - name: unused_account_age
+  - name: unused_account_age #V-93457
     desc: "Set the maximum age in days for unused accounts stated by your organization"
     type: Numeric
     value: 30
